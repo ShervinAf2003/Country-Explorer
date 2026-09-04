@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>Country Explorer</title>
+</head>
+<body>
+    <div class="header"><h3>Search for a country</h3></div>
+
+    <form action="/search" method="post">
+        <label for="nameCountry">Country name</label>
+        <input type="text" id="nameCountry" name="nameCountry" placeholder="Enter a country name" value="<%= countryName %>" autocomplete="off">
+        <button type="submit">Find</button>
+    </form>
+
+    <% if (country) { %>
+        <div class="result">
+            <div class="country-name"><%= country.name %></div>
+            <% if (country.flag) { %>
+                <img src="<%= country.flag %>" alt="Flag of <%= country.name %>">
+            <% } else { %>
+                <p class="flag-error">Flag could not be loaded.</p>
+            <% } %>
+        </div>
+    <% } %>
+
+    <% if (error) { %>
+        <p class="error"><%= error %></p>
+    <% } %>
+</body>
+</html>
