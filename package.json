@@ -1,0 +1,20 @@
+{
+  "name": "country-explorer",
+  "version": "1.0.0",
+  "description": "A simple country search application built with Node.js, Express, PostgreSQL, EJS and Axios.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file=.env index.js"
+  },
+  "keywords": ["nodejs", "express", "postgresql", "ejs", "axios", "country-explorer"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.20.0",
+    "body-parser": "^2.3.0",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "pg": "^8.23.0"
+  }
+}
