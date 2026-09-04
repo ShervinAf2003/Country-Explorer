@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --background: #303841;
+    --card: #465C88;
+    --orange: #FF7A30;
+    --light: #E9E3DF;
+    --border: rgba(233, 227, 223, 0.15);
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Inter", sans-serif;
+    color: var(--light);
+    background:
+        radial-gradient(circle at 20% 10%, rgba(70, 92, 136, 0.45), transparent 30%),
+        radial-gradient(circle at 90% 90%, rgba(255, 122, 48, 0.08), transparent 25%),
+        var(--background);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 130px 20px 50px;
+    overflow-x: hidden;
+}
+
+.header { text-align: center; margin-bottom: 30px; animation: fadeDown 0.7s ease; }
+.header h3 { font-size: 30px; font-weight: 800; letter-spacing: -1px; color: var(--light); }
+.header::after { content: ""; display: block; width: 55px; height: 3px; margin: 12px auto 0; border-radius: 20px; background: var(--orange); box-shadow: 0 0 15px rgba(255, 122, 48, 0.4); }
+
+form {
+    width: 500px; max-width: 100%; padding: 26px; display: flex; flex-direction: column; gap: 12px;
+    background: linear-gradient(145deg, rgba(70, 92, 136, 0.85), rgba(48, 56, 65, 0.95));
+    border: 1px solid var(--border); border-radius: 20px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25); animation: fadeUp 0.7s ease;
+}
+
+label { font-size: 13px; font-weight: 600; color: var(--light); opacity: 0.8; }
+input { width: 100%; height: 50px; padding: 0 16px; border: 1px solid var(--border); border-radius: 12px; outline: none; background: rgba(48, 56, 65, 0.75); color: var(--light); font-family: inherit; font-size: 14px; transition: 0.25s ease; }
+input::placeholder { color: rgba(233, 227, 223, 0.45); }
+input:focus { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(255, 122, 48, 0.12); transform: translateY(-1px); }
+
+button { width: 100%; height: 50px; margin-top: 4px; border: none; border-radius: 12px; background: var(--orange); color: var(--background); font-family: inherit; font-size: 14px; font-weight: 800; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease; }
+button:hover { transform: translateY(-2px); filter: brightness(1.08); box-shadow: 0 10px 25px rgba(255, 122, 48, 0.3); }
+button:active { transform: translateY(0); }
+
+.result { width: 500px; max-width: 100%; margin-top: 22px; margin-bottom: 20px; padding: 18px 22px; display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 20px; background: linear-gradient(135deg, rgba(70, 92, 136, 0.9), rgba(48, 56, 65, 0.95)); border: 1px solid var(--border); border-radius: 18px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25); animation: resultAppear 0.5s ease; }
+.result > :first-child { font-size: 22px; font-weight: 800; text-transform: capitalize; color: var(--light); min-width: 0; word-break: break-word; }
+.result img { width: 150px; max-width: 40%; height: auto; flex-shrink: 0; display: block; border-radius: 9px; border: 2px solid rgba(255, 122, 48, 0.5); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); transition: transform 0.25s ease, border-color 0.25s ease; }
+.result img:hover { transform: scale(1.04); border-color: var(--orange); }
+
+p.error { width: 500px; max-width: 100%; margin-top: 20px; padding: 14px; text-align: center; border-radius: 12px; color: var(--light); background: rgba(255, 122, 48, 0.08); border: 1px solid rgba(255, 122, 48, 0.3); animation: fadeUp 0.4s ease; }
+.flag-error { margin-left: auto; text-align: right; opacity: 0.75; }
+
+@keyframes fadeDown { from { opacity: 0; transform: translateY(-15px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes resultAppear { from { opacity: 0; transform: translateY(15px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+@media (max-width: 600px) {
+    body { padding-top: 100px; }
+    .header h3 { font-size: 23px; }
+    form { padding: 22px; }
+    .result { padding: 16px; gap: 12px; }
+    .result > :first-child { font-size: 18px; }
+    .result img { width: 120px; max-width: 42%; }
+}
+
+@media (max-width: 420px) {
+    .result { flex-direction: column; align-items: flex-start; }
+    .result img { width: 100%; max-width: 100%; }
+    .flag-error { margin-left: 0; text-align: left; }
+}
